@@ -4,8 +4,8 @@ import { useState } from 'react'
 export default function App() {
     const [cvData, setCvData] = useState("");
     const getCvData = (data) => {
-    setCvData(data);
-    console.log(data);
+        setCvData(data);
+        console.log(data);
     }
 
     return (
