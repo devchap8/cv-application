@@ -116,6 +116,10 @@ label, input, textarea {
   padding: 5px;
 }
 
+textarea {
+  resize: vertical;
+}
+
 label {
   width: 45%;
   text-align: left;
