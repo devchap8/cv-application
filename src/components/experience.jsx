@@ -3,24 +3,24 @@ export default function Experience({uuid, remove}) {
         <div className="subform">
             <button type="button" className="deleteButton" onClick={remove}>x</button>
             <label htmlFor={`companyName${uuid}`} className="fullLineLabel">
-                School Name
-                <input type="text" id={`companyName${uuid}`} name={`companyName${uuid}`}></input>
+                Company Name
+                <input type="text" id={`companyName${uuid}`} name={`companyName${uuid}`} placeholder="Microsoft"></input>
             </label>
             <label htmlFor={`jobTitle${uuid}`} className="fullLineLabel">
-                Degree
-                <input type="text" id={`jobTitle${uuid}`} name={`jobTitle${uuid}`}></input>
+                Position Title
+                <input type="text" id={`jobTitle${uuid}`} name={`jobTitle${uuid}`} placeholder="Junior Full Stack Developer"></input>
             </label>
             <label htmlFor={`startDate${uuid}`}>
-                Graduation Year
-                <input type="text" id={`startDate${uuid}`} name={`startDate${uuid}`}></input>
+                Start Date
+                <input type="text" id={`startDate${uuid}`} name={`startDate${uuid}`} placeholder="June 2025"></input>
             </label>
             <label htmlFor={`endDate${uuid}`}>
-                GPA
-                <input type="text" id={`endDate${uuid}`} name={`endDate${uuid}`}></input>
+                End Date
+                <input type="text" id={`endDate${uuid}`} name={`endDate${uuid}`} placeholder="Current"></input>
             </label>
             <label htmlFor={`jobDesc${uuid}`} className="fullLineLabel">
                 Description
-                <textarea id={`jobDesc${uuid}`} name={`jobDesc${uuid}`}></textarea>
+                <textarea id={`jobDesc${uuid}`} name={`jobDesc${uuid}`} placeholder="Designed fluid user interfaces with React and Tailwind CSS"></textarea>
             </label>
         </div>
     )

@@ -24,23 +24,23 @@ export default function FormSection({display, id}) {
         <form className={display ? "" : "hidden"}>
             <label htmlFor="fullName" className="fullLineLabel">
                 Name
-                <input type="text" id="fullName" name="fullName"></input>
+                <input type="text" id="fullName" name="fullName" placeholder='John Smith'></input>
             </label> 
             <label htmlFor="phoneNumber">
                 Phone Number
-                <input type="tel" id="phoneNumber" name="phoneNumber"></input> 
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder='(999) 123-4567'></input> 
             </label> 
             <label htmlFor="email">
                 Email
-                <input type="email" name="email" id="email"></input>
+                <input type="email" name="email" id="email" placeholder='email@example.com'></input>
             </label> 
             <label htmlFor="location" className="fullLineLabel">
                 Location
-                <input type="text" id="location" name="location"></input>
+                <input type="text" id="location" name="location" placeholder='New York City, New York, USA'></input>
             </label> 
             <label htmlFor="website" className="fullLineLabel">
                 Website Link
-                <input type="text" id="website" name="website"></input>
+                <input type="text" id="website" name="website" placeholder='yourwebsite.com'></input>
             </label>
         </form>
 
@@ -72,12 +72,12 @@ export default function FormSection({display, id}) {
         <form className={display ? "" : "hidden"}>
             <label htmlFor="skills" className="fullLineLabel">
                 Skills
-                <input type="text" id="skills" name="skills"></input>
+                <input type="text" id="skills" name="skills" placeholder='HTML, CSS, Javascript'></input>
                 <div className="labelFootnote">Separate with commas</div>
             </label>
             <label htmlFor="certs" className="fullLineLabel">
                 Certifications <i>(Optional)</i>
-                <input type="text" id="certs" name="certs"></input>
+                <input type="text" id="certs" name="certs" placeholder='AWS Certified Developer - Associate'></input>
             </label>
         </form>
     )}
