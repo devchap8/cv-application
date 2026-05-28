@@ -15,6 +15,8 @@
   --btn-dark: #212529;
   --btn-dark-hover: #343a40;
   --focus-ring: #a3bffa;
+  --light-red: #ff4d4d;
+  --dark-red: #d32f2f;
 }
 
 * {
@@ -169,20 +171,25 @@ input:focus, textarea:focus {
 
 .deleteButton {
   position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 1rem;
-  width: 20px;
-  border-radius: 50%;
-  border: none;
-  background-color: rgba(231, 51, 51, 50%);
-  color: var(--text-main);
+  top: -10px; 
+  right: -10px;  
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
   font-weight: bold;
+  cursor: pointer;
+  background-color: var(--light-red);
+  color: white;
+  border: 2px solid var(--bg-main); 
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .deleteButton:hover {
-  background-color: rgba(231, 51, 51, 80%);
-  cursor: pointer;
+  background-color: var(--dark-red);
 }
 
 /* CV Display */
