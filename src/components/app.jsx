@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { Fragment } from 'react';
 import MenuButton from "./menu-button";
+import FormSection from './form-section';
 
 const menuIcons = {
     person: <img src="src/assets/person.svg"></img>,
@@ -28,16 +30,20 @@ export default function App() {
                 <h2>Enter your information</h2>
                 <div className="sidebarMain">
                     {buttonInfo.map(info => 
-                    <>
-                    <MenuButton 
-                        icon={info.icon} 
-                        text={info.text} 
-                        key={info.id}
-                        isSelected={info.id === selectedId}
-                        handleClick={() => selectedId === info.id ? setSelectedId(null) : setSelectedId(info.id)}
-                    ></MenuButton>
-
-                    </>
+                    <Fragment key={info.id}>
+                        <MenuButton 
+                            icon={info.icon} 
+                            text={info.text} 
+                            // key={info.id}
+                            isSelected={info.id === selectedId}
+                            handleClick={() => selectedId === info.id ? setSelectedId(null) : setSelectedId(info.id)}
+                        ></MenuButton>
+                        
+                        <FormSection
+                            display={info.id === selectedId}
+                            // key={`form${info.id}`}
+                        ></FormSection>
+                    </Fragment>
                     )}
                 </div>
             </section>

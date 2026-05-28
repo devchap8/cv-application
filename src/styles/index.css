@@ -64,6 +64,10 @@ h1 {
   background-color: var(--btn-light);
 }
 
+button.selectedButton {
+  border-radius: 10px 10px 0 0;
+}
+
 .sidebarMain button:hover {
   background-color: var(--btn-light-hover);
   cursor: pointer;
@@ -72,6 +76,12 @@ h1 {
 .sidebarMain button img {
   width: 30px;
   height: auto;
+}
+
+.sidebarMain form {
+  width: 90%;
+  background-color: lightblue;
+  margin-top: -20px;
 }
 
 /* CV Display */
