@@ -55,7 +55,7 @@ h1 {
   font-size: 4rem;
 }
 
-.sidebarMain button {
+.sidebarMain button.menuButton {
   width: 90%;
   height: 50px;
   display: flex;
@@ -68,11 +68,11 @@ h1 {
   background-color: var(--btn-light);
 }
 
-button.selectedButton {
+button.selectedButton.menuButton {
   border-radius: 10px 10px 0 0;
 }
 
-.sidebarMain button:hover,
+.sidebarMain button.menuButton:hover,
 .sidebarMain button.selectedButton {
   background-color: var(--btn-light-hover);
   cursor: pointer;
@@ -85,17 +85,27 @@ button.selectedButton {
 
 /* Forms */
 
-.sidebarMain form {
+.sidebarMain form,
+.subform {
   width: 90%;
   background-color: var(--btn-light-hover);
   border: 1px solid var(--text-muted);
-  border-top: none;
-  border-radius: 0 0 10px 10px;
-  margin-top: -20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   /* flex-direction: column; */
+}
+
+.sidebarMain form {
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  margin-top: -20px;
+}
+
+.subform {
+  margin: 5px auto 10px auto;
+  width: 100%;
+  border-radius: 10px;
 }
 
 label, input {
@@ -128,7 +138,26 @@ input:focus {
 .labelFootnote {
   font-style: italic;
   color: var(--text-muted);
-  font-size: .85rem;
+  font-size: .85rem; 
+}
+
+.formFooter {
+  padding: .5rem;
+  width: 100%;
+}
+
+.newFieldButton {
+  width: 50%;
+  height: 30px;
+  font-size: 1rem;
+  border: 1px solid var(--text-muted);
+  border-radius: 10px;
+  background-color: var(--btn-light);
+}
+
+.newFieldButton:hover {
+  background-color: var(--btn-light-hover);
+  cursor: pointer;
 }
 
 /* CV Display */

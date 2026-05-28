@@ -1,4 +1,12 @@
+import { useState } from 'react';
+import Education from "./education"
+
+const baseEdu = crypto.randomUUID();
+
 export default function FormSection({display, id}) {
+    const [eduList, setEduList] = useState([baseEdu]);
+    const newEdu = () => setEduList([...eduList, crypto.randomUUID()]);
+
     if(id === 1) {return ( // personal info
         <form className={display ? "" : "hidden"}>
             <label htmlFor="fullName" className="fullLineLabel">
@@ -22,12 +30,21 @@ export default function FormSection({display, id}) {
                 <input type="text" id="website" name="website"></input>
             </label>
         </form>
+
     )} else if(id === 2) {return ( // experience
         null
+
     )} else if(id === 3) {return ( // education
-        null
+        <form className={display ? "" : "hidden"}>
+            <footer className="formFooter">
+                {eduList.map(eduId => <Education uuid={eduId} key={eduId}></Education>)}
+                <button type="button" className="newFieldButton" onClick={newEdu}>+ New Education Field</button>
+            </footer>
+        </form>
+
     )} else if(id === 4) {return ( // projects
         null
+
     )} else if(id === 5) {return ( // other info
         <form className={display ? "" : "hidden"}>
             <label htmlFor="skills" className="fullLineLabel">
