@@ -1,12 +1,23 @@
 import { useState } from 'react';
 import Education from "./education"
+import Experience from './experience';
 
 const baseEdu = crypto.randomUUID();
+const baseProj = crypto.randomUUID();
+const baseExp = crypto.randomUUID();
 
 export default function FormSection({display, id}) {
     const [eduList, setEduList] = useState([baseEdu]);
     const newEdu = () => setEduList([...eduList, crypto.randomUUID()]);
     const deleteEdu = (uuid) => setEduList(eduList.filter(id => id !== uuid));
+
+    const [projList, setProjList] = useState([baseProj]);
+    const newProj = () => setProjList([...projList, crypto.randomUUID()]);
+    const deleteProj = (uuid) => setProjList(projList.filter(id => id !== uuid));
+
+    const [expList, setExpList] = useState([baseExp]);
+    const newExp = () => setExpList([...expList, crypto.randomUUID()]);
+    const deleteExp = (uuid) => setExpList(expList.filter(id => id !== uuid));
 
     if(id === 1) {return ( // personal info
         <form className={display ? "" : "hidden"}>
@@ -33,12 +44,17 @@ export default function FormSection({display, id}) {
         </form>
 
     )} else if(id === 2) {return ( // experience
-        null
+        <form className={display ? "" : "hidden"}>
+            {expList.map(expId => <Experience uuid={expId} key={expId} remove={() => deleteExp(expId)}></Experience>)}
+            <footer className="formFooter">
+                <button type="button" className="newFieldButton" onClick={newExp}>+ New Experience Field</button>
+            </footer>
+        </form>
 
     )} else if(id === 3) {return ( // education
         <form className={display ? "" : "hidden"}>
+            {eduList.map(eduId => <Education uuid={eduId} key={eduId} remove={() => deleteEdu(eduId)}></Education>)}
             <footer className="formFooter">
-                {eduList.map(eduId => <Education uuid={eduId} key={eduId} remove={() => deleteEdu(eduId)}></Education>)}
                 <button type="button" className="newFieldButton" onClick={newEdu}>+ New Education Field</button>
             </footer>
         </form>
