@@ -41,7 +41,7 @@ export default function App() {
                         
                         <FormSection
                             display={info.id === selectedId}
-                            // key={`form${info.id}`}
+                            id={info.id}
                         ></FormSection>
                     </Fragment>
                     )}

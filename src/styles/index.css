@@ -10,7 +10,7 @@
   --accent: #4a90e2;
   --input-bg: #f1f3f5;
   --input-border: #ced4da;
-  --btn-light: #e2e8f0;
+  --btn-light: #c3cbd4;
   --btn-light-hover: #ebeff5;
   --btn-dark: #212529;
   --btn-dark-hover: #343a40;
@@ -26,6 +26,10 @@
 main {
   display: flex;
   height: 100vh;
+}
+
+.hidden {
+  display: none !important;
 }
 
 /* Sidebar */
@@ -68,7 +72,8 @@ button.selectedButton {
   border-radius: 10px 10px 0 0;
 }
 
-.sidebarMain button:hover {
+.sidebarMain button:hover,
+.sidebarMain button.selectedButton {
   background-color: var(--btn-light-hover);
   cursor: pointer;
 }
@@ -78,15 +83,51 @@ button.selectedButton {
   height: auto;
 }
 
+/* Forms */
+
 .sidebarMain form {
   width: 90%;
-  background-color: lightblue;
+  background-color: var(--btn-light-hover);
+  border: 1px solid var(--text-muted);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
   margin-top: -20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* flex-direction: column; */
+}
+
+label, input {
+  display: block;
+  padding: 5px;
+}
+
+label {
+  width: 45%;
+  text-align: left;
+  margin: .5rem 0;
+}
+
+label.fullLineLabel {
+  width: 93.5%;
+}
+
+input {
+  width: 100%;
+  background-color: var(--bg-main);
+  border: 2px solid var(--input-border);
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid var(--focus-ring);
 }
 
 /* CV Display */
 
 .cvContainer {
   background-color: var(--bg-dark);
-  flex: 2.5;
+  flex: 2;
 }
