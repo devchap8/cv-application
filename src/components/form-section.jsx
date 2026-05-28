@@ -6,6 +6,7 @@ const baseEdu = crypto.randomUUID();
 export default function FormSection({display, id}) {
     const [eduList, setEduList] = useState([baseEdu]);
     const newEdu = () => setEduList([...eduList, crypto.randomUUID()]);
+    const deleteEdu = (uuid) => setEduList(eduList.filter(id => id !== uuid));
 
     if(id === 1) {return ( // personal info
         <form className={display ? "" : "hidden"}>
@@ -37,7 +38,7 @@ export default function FormSection({display, id}) {
     )} else if(id === 3) {return ( // education
         <form className={display ? "" : "hidden"}>
             <footer className="formFooter">
-                {eduList.map(eduId => <Education uuid={eduId} key={eduId}></Education>)}
+                {eduList.map(eduId => <Education uuid={eduId} key={eduId} remove={() => deleteEdu(eduId)}></Education>)}
                 <button type="button" className="newFieldButton" onClick={newEdu}>+ New Education Field</button>
             </footer>
         </form>

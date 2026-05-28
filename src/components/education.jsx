@@ -1,6 +1,7 @@
-export default function Education({uuid}) {
+export default function Education({uuid, remove}) {
     return (
         <div className="subform">
+            <button type="button" className="deleteButton" onClick={remove}>x</button>
             <label htmlFor={`schoolName${uuid}`} className="fullLineLabel">
                 School Name
                 <input type="text" id={`schoolName${uuid}`} name={`schoolName${uuid}`}></input>
