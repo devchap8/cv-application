@@ -1,6 +1,82 @@
+:root {
+  --bg-main: #ffffff;
+  --bg-subtle: #f8f9fa;
+  --bg-dark: #1e2329;
+  --border-color: #e9ecef;
+  --icon-color: #DEE2E6;
+  --text-main: #495057;
+  --text-bold: #212529;
+  --text-muted: #6c757d;
+  --accent: #4a90e2;
+  --input-bg: #f1f3f5;
+  --input-border: #ced4da;
+  --btn-light: #e2e8f0;
+  --btn-light-hover: #ebeff5;
+  --btn-dark: #212529;
+  --btn-dark-hover: #343a40;
+  --focus-ring: #a3bffa;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+main {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+
+.sidebar {
+  background-color: var(--bg-main);
+  flex: 1;
+  text-align: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.sidebarMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.sidebarMain button {
+  width: 90%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  border: 1px solid var(--text-muted);
+  border-radius: 10px;
+  background-color: var(--btn-light);
+}
+
+.sidebarMain button:hover {
+  background-color: var(--btn-light-hover);
+  cursor: pointer;
+}
+
+.sidebarMain button img {
+  width: 30px;
+  height: auto;
+}
+
+/* CV Display */
+
+.cvContainer {
+  background-color: var(--bg-dark);
+  flex: 2.5;
+}
