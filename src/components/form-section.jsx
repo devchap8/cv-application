@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Education from "./education"
 import Experience from './experience';
+import Project from './projects';
 
 const baseEdu = crypto.randomUUID();
 const baseProj = crypto.randomUUID();
@@ -60,7 +61,12 @@ export default function FormSection({display, id}) {
         </form>
 
     )} else if(id === 4) {return ( // projects
-        null
+        <form className={display ? "" : "hidden"}>
+            {projList.map(projId => <Project uuid={projId} key={projId} remove={() => deleteProj(projId)}></Project>)}
+            <footer className="formFooter">
+                <button type="button" className="newFieldButton" onClick={newProj}>+ New Project Field</button>
+            </footer>
+        </form>
 
     )} else if(id === 5) {return ( // other info
         <form className={display ? "" : "hidden"}>

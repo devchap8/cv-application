@@ -106,7 +106,7 @@ button.selectedButton.menuButton {
 }
 
 .subform {
-  margin: 10px;
+  margin: 10px 10px 0 10px;
   width: 100%;
   border-radius: 10px;
 }
@@ -145,7 +145,7 @@ input:focus, textarea:focus {
 }
 
 .formFooter {
-  padding: 0 .5rem .5rem .5rem;
+  padding: .5rem;
   width: 100%;
 }
 

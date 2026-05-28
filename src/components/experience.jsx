@@ -18,9 +18,9 @@ export default function Experience({uuid, remove}) {
                 GPA
                 <input type="text" id={`endDate${uuid}`} name={`endDate${uuid}`}></input>
             </label>
-            <label htmlFor={`projectDesc${uuid}`} className="fullLineLabel">
-                Description:
-                <textarea></textarea>
+            <label htmlFor={`jobDesc${uuid}`} className="fullLineLabel">
+                Description
+                <textarea id={`jobDesc${uuid}`} name={`jobDesc${uuid}`}></textarea>
             </label>
         </div>
     )
