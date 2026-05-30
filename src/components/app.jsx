@@ -47,7 +47,11 @@ export default function App() {
                     )}
                 </div>
             </section>
-            <main className="cvContainer"> Main here</main>
+            <main className="cvContainer"> 
+                <div className="cv">
+                    
+                </div>
+            </main>
         </main>
     );
 }

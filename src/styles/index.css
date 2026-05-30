@@ -28,6 +28,11 @@
 main {
   display: flex;
   height: 100vh;
+  @media (max-width: 900px) {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
 }
 
 .hidden {
@@ -44,6 +49,11 @@ main {
   padding: 1rem;
   height: 100%;
   overflow: auto;
+  @media (max-width: 900px) {
+    flex: 0 0 auto;
+    height: auto;
+    overflow: visible;
+  }
 }
 
 .sidebarMain {
@@ -197,4 +207,25 @@ input:focus, textarea:focus {
 .cvContainer {
   background-color: var(--bg-dark);
   flex: 2;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  @media (max-width: 900px) {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  @media (max-width: 730px) {
+    padding: 15px 0px;
+  }
+}
+
+.cv {
+  background-color: var(--bg-main);
+  max-width: 700px;
+  display: flex;
+  flex: 1;
+  @media (max-width: 900px) {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
