@@ -20,9 +20,19 @@ export default function CvSidebar() {
             </div>
             <div className="cvSidebarSect">
                 <CvTitle text="Skills"></CvTitle>
+                <div className="skillsList">
+                    <div className="cvSkill">HTML</div>
+                    <div className="cvSkill">CSS</div>
+                    <div className="cvSkill">Python</div>
+                    <div className="cvSkill">Javascript</div>
+                </div>
             </div>
             <div className="cvSidebarSect">
                 <CvTitle text="Certifications"></CvTitle>
+                <ul className="certsList">
+                    <li>Fake Cert 1</li>
+                    <li>Fake Cert Long text text text text text</li>
+                </ul>
             </div>
         </div>
     )

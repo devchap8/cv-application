@@ -252,15 +252,20 @@ input:focus, textarea:focus {
 
 .cvSidebar {
   background-color: var(--bg-subtle);
-  flex: 1.25;
+  flex: 1;
+  padding: .5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .cvMain {
   flex: 2;
 }
 
+/* Sidebar */
+
 .cvTitleUnderline, .cvTitleText {
-  width: 90%;
   display: flex;
   margin: 0 auto;
 }
@@ -272,7 +277,10 @@ input:focus, textarea:focus {
 .cvTitleUnderline {
   background-color: var(--bg-medium);
   height: 2px;
+  margin-bottom: 5px;
 }
+
+/* Contact Section */
 
 .cvSidebar img {
   height: 20px;
@@ -280,12 +288,41 @@ input:focus, textarea:focus {
 
 .contactLine {
   display: flex;
-  margin: 5px 5%;
+  margin: 5px 0;
   gap: 5px;
   align-items: center;
 }
 
 .contactLine a {
   text-decoration: none;
+}
+
+/* Skills Section */
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.cvSkill {
+  background-color: var(--bg-medium);
+  color: var(--bg-main);
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 1.25rem;
+  border-radius: 10px;
+}
+
+/* Certs Section */
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+li {
+  list-style: none;
 }
 
