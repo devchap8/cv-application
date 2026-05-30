@@ -1,3 +1,4 @@
+import CvSidebar from './cv-sidebar';
 import { useState } from 'react';
 import { Fragment } from 'react';
 import MenuButton from "./menu-button";
@@ -34,7 +35,6 @@ export default function App() {
                         <MenuButton 
                             icon={info.icon} 
                             text={info.text} 
-                            // key={info.id}
                             isSelected={info.id === selectedId}
                             handleClick={() => selectedId === info.id ? setSelectedId(null) : setSelectedId(info.id)}
                         ></MenuButton>
@@ -49,8 +49,14 @@ export default function App() {
             </section>
             <main className="cvContainer"> 
                 <div className="cv">
-                    
-                </div>
+                    <header className="cvHeader">
+                        Your Name
+                    </header>
+                    <section className="cvBottom">
+                        <CvSidebar></CvSidebar>
+                        <div className="cvMain">Main</div>
+                    </section>
+                </div> 
             </main>
         </main>
     );
