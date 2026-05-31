@@ -26,12 +26,26 @@ export default function App() {
         else if(type === "link") setPersonalInfo({...personalInfo, link: e.target.value});
     }
 
+    const [skillsList, setSkillsList] = useState([]);
+    const updateSkillsList = (e) => {
+        if(e.target.value) {
+            const splitSkills = e.target.value.split(",").map(skill => skill.trim()).filter(skill => skill !== "");
+            setSkillsList(splitSkills);
+        }
+        else setSkillsList([]);
+    }
+
+    const changeOtherInfo = (e, type) => {
+        if(type === "skills") updateSkillsList(e);
+        else if(type === "certs") return null;
+    }
+
     const buttonInfo = [
         {icon: menuIcons.person, text: "Personal Info", id: 1, handleChange: changePersonalInfo},
         {icon: menuIcons.briefcase, text: "Experience", id: 2, handleChange: null},
         {icon: menuIcons.education, text: "Education", id: 3, handleChange: null},
         {icon: menuIcons.folder, text: "Projects", id: 4, handleChange: null},
-        {icon: menuIcons.dots, text: "Other Info", id: 5, handleChange: null}
+        {icon: menuIcons.dots, text: "Other Info", id: 5, handleChange: changeOtherInfo}
     ];
 
     return (
@@ -64,7 +78,7 @@ export default function App() {
                         {personalInfo.name ? personalInfo.name : <div className="nullInfo">Your Name</div>}
                     </header>
                     <section className="cvBottom">
-                        <CvSidebar personalInfo={personalInfo}></CvSidebar>
+                        <CvSidebar personalInfo={personalInfo} skillsList={skillsList}></CvSidebar>
                         <div className="cvMain">Main</div>
                     </section>
                 </div> 

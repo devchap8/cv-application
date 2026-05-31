@@ -72,7 +72,7 @@ export default function FormSection({display, id, handleChange}) {
         <form className={display ? "" : "hidden"}>
             <label htmlFor="skills" className="fullLineLabel">
                 Skills
-                <input type="text" id="skills" name="skills" placeholder='HTML, CSS, Javascript'></input>
+                <input type="text" id="skills" name="skills" placeholder='HTML, CSS, Javascript' onChange={(e) => handleChange(e, "skills")}></input>
                 <div className="labelFootnote">Separate with commas</div>
             </label>
             <label htmlFor="certs" className="fullLineLabel">

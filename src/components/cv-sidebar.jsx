@@ -8,7 +8,7 @@ const contactIcons = {
     phone: <img src="src/assets/phone.svg"></img>,
 }
 
-export default function CvSidebar({personalInfo}) {
+export default function CvSidebar({personalInfo, skillsList}) {
     return (
         <div className="cvSidebar">
             <div className="cvSidebarSect">
@@ -22,10 +22,8 @@ export default function CvSidebar({personalInfo}) {
             <div className="cvSidebarSect">
                 <CvTitle text="Skills"></CvTitle>
                 <div className="skillsList">
-                    <div className="cvSkill">HTML</div>
-                    <div className="cvSkill">CSS</div>
-                    <div className="cvSkill">Python</div>
-                    <div className="cvSkill">Javascript</div>
+                    {skillsList.map(skill => <div className="cvSkill">{skill}</div>)}
+                    {skillsList.length === 0 && <div className="nullInfo">No skills added</div>}
                 </div>
             </div>
             <div className="cvSidebarSect">
