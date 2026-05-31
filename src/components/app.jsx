@@ -12,18 +12,28 @@ const menuIcons = {
     folder: <img src="src/assets/folder.svg"></img>,
 }
 
-const buttonInfo = [
-    {icon: menuIcons.person, text: "Personal Info", id: 1},
-    {icon: menuIcons.briefcase, text: "Experience", id: 2},
-    {icon: menuIcons.education, text: "Education", id: 3},
-    {icon: menuIcons.folder, text: "Projects", id: 4},
-    {icon: menuIcons.dots, text: "Other Info", id: 5}
-];
-
-
-
-export default function App() {
+export default function App() {    
+    // selected id for sidebar buttons
     const [selectedId, setSelectedId] = useState(null);
+
+    // form text updating cv in real time
+    const [personalInfo, setPersonalInfo] = useState({name: null, email: null, phone: null, location: null, link: null});
+    const changePersonalInfo = (e, type) => {
+        if(type === "name") setPersonalInfo({...personalInfo, name: e.target.value});
+        else if(type === "email") setPersonalInfo({...personalInfo, email: e.target.value});
+        else if(type === "phone") setPersonalInfo({...personalInfo, phone: e.target.value});
+        else if(type === "location") setPersonalInfo({...personalInfo, location: e.target.value});
+        else if(type === "link") setPersonalInfo({...personalInfo, link: e.target.value});
+    }
+
+    const buttonInfo = [
+        {icon: menuIcons.person, text: "Personal Info", id: 1, handleChange: changePersonalInfo},
+        {icon: menuIcons.briefcase, text: "Experience", id: 2, handleChange: null},
+        {icon: menuIcons.education, text: "Education", id: 3, handleChange: null},
+        {icon: menuIcons.folder, text: "Projects", id: 4, handleChange: null},
+        {icon: menuIcons.dots, text: "Other Info", id: 5, handleChange: null}
+    ];
+
     return (
         <main>
             <section className="sidebar">
@@ -42,6 +52,7 @@ export default function App() {
                         <FormSection
                             display={info.id === selectedId}
                             id={info.id}
+                            handleChange={info.handleChange}
                         ></FormSection>
                     </Fragment>
                     )}
@@ -50,10 +61,10 @@ export default function App() {
             <main className="cvContainer"> 
                 <div className="cv">
                     <header className="cvHeader">
-                        Your Name
+                        {personalInfo.name ? personalInfo.name : <div className="nullInfo">Your Name</div>}
                     </header>
                     <section className="cvBottom">
-                        <CvSidebar></CvSidebar>
+                        <CvSidebar personalInfo={personalInfo}></CvSidebar>
                         <div className="cvMain">Main</div>
                     </section>
                 </div> 

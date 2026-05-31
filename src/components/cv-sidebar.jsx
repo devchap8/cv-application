@@ -8,15 +8,16 @@ const contactIcons = {
     phone: <img src="src/assets/phone.svg"></img>,
 }
 
-export default function CvSidebar() {
+export default function CvSidebar({personalInfo}) {
     return (
         <div className="cvSidebar">
             <div className="cvSidebarSect">
                 <CvTitle text="Contact"></CvTitle>
-                <ContactLine icon={contactIcons.email} text={"email@email.com"}></ContactLine>
-                <ContactLine icon={contactIcons.phone} text={"(555) 123-4567"}></ContactLine>
-                <ContactLine icon={contactIcons.location} text={"City, Country"}></ContactLine>
-                <ContactLine icon={contactIcons.link} text={"google.com"} isLink={true}></ContactLine>
+                {personalInfo.email && <ContactLine icon={contactIcons.email} text={personalInfo.email}></ContactLine>}
+                {personalInfo.phone && <ContactLine icon={contactIcons.phone} text={personalInfo.phone}></ContactLine>}
+                {personalInfo.location && <ContactLine icon={contactIcons.location} text={personalInfo.location}></ContactLine>}
+                {personalInfo.link && <ContactLine icon={contactIcons.link} text={personalInfo.link}></ContactLine>}
+                {(Object.entries(personalInfo).every(info => !info[1] || info[0] === "name")) && <div className="nullInfo">No info added</div>}
             </div>
             <div className="cvSidebarSect">
                 <CvTitle text="Skills"></CvTitle>
