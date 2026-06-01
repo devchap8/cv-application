@@ -57,7 +57,7 @@ export default function FormSection({display, id, handleChange, addButtonAction,
 
     )} else if(id === 3) {return ( // education
         <form className={display ? "" : "hidden"}>
-            {eduList.map(eduId => <Education uuid={eduId} key={eduId} remove={() => deleteEdu(eduId)}></Education>)}
+            {eduList.map(eduId => <Education uuid={eduId} key={eduId} remove={() => deleteEdu(eduId)} handleChange={handleChange}></Education>)}
             <footer className="formFooter">
                 <button type="button" className="newFieldButton" onClick={newEdu}>+ New Education Field</button>
             </footer>
@@ -65,7 +65,7 @@ export default function FormSection({display, id, handleChange, addButtonAction,
 
     )} else if(id === 4) {return ( // projects
         <form className={display ? "" : "hidden"}>
-            {projList.map(projId => <Project uuid={projId} key={projId} remove={() => deleteProj(projId)}></Project>)}
+            {projList.map(projId => <Project uuid={projId} key={projId} remove={() => deleteProj(projId)} handleChange={handleChange}></Project>)}
             <footer className="formFooter">
                 <button type="button" className="newFieldButton" onClick={newProj}>+ New Project Field</button>
             </footer>

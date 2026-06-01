@@ -59,9 +59,7 @@ export default function App() {
     const newExp = (uuid) => {
         setExperienceList([...experienceList, {companyName: null, positionTitle: null, startDate: null, endDate: null, description: null, id: uuid}]);
     }
-    const delExp = (uuid) => {
-        setExperienceList(experienceList.filter(exp => exp.id !== uuid));
-    }
+    const delExp = (uuid) => setExperienceList(experienceList.filter(exp => exp.id !== uuid));
     const changeExp = (e, uuid, type) => {
         let newObj;
         for(let exp of experienceList) {
@@ -79,11 +77,29 @@ export default function App() {
         setExperienceList([...filteredExpList, newObj]);
     }
 
+    const [projectList, setProjectList] = useState([{name: null, link: null, description: null, id: baseIds.baseProj}]);
+    const newProj = (uuid) => setProjectList([...projectList, {name: null, link: null, description: null, id: uuid}]);
+    const delProj = (uuid) => setProjectList(projectList.filter(proj => proj.id !== uuid));
+    const changeProj = (e, uuid, type) => {
+        let newObj;
+        for(let proj of projectList) {
+            if(proj.id === uuid) {
+                newObj = proj;
+                break;
+            }
+        }
+        if(type === "projectName") newObj = {...newObj, name: e.target.value};
+        else if(type === "projectLink") newObj = {...newObj, link: e.target.value};
+        else if(type === "projectDescription") newObj = {...newObj, description: e.target.value};
+        const filteredProjList = projectList.filter(proj => proj.id !== uuid);
+        setProjectList([...filteredProjList, newObj]);
+    }
+
     const buttonInfo = [
         {icon: menuIcons.person, text: "Personal Info", id: 1, handleChange: changePersonalInfo, addButtonAction: null, delButtonAction: null},
         {icon: menuIcons.briefcase, text: "Experience", id: 2, handleChange: changeExp, addButtonAction: newExp, delButtonAction: delExp},
         {icon: menuIcons.education, text: "Education", id: 3, handleChange: null, addButtonAction: null, delButtonAction: null},
-        {icon: menuIcons.folder, text: "Projects", id: 4, handleChange: null, addButtonAction: null, delButtonAction: null},
+        {icon: menuIcons.folder, text: "Projects", id: 4, handleChange: changeProj, addButtonAction: newProj, delButtonAction: delProj},
         {icon: menuIcons.dots, text: "Other Info", id: 5, handleChange: changeOtherInfo, addButtonAction: null, delButtonAction: null}
     ];
 
@@ -121,7 +137,7 @@ export default function App() {
                     </header>
                     <section className="cvBottom">
                         <CvSidebar personalInfo={personalInfo} skillsList={skillsList} certsList={certsList}></CvSidebar>
-                        <CvMain experienceList={experienceList}></CvMain>
+                        <CvMain experienceList={experienceList} projectList={projectList}></CvMain>
                     </section>
                 </div> 
             </main>
