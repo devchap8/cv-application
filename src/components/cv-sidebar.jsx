@@ -8,7 +8,7 @@ const contactIcons = {
     phone: <img src="src/assets/phone.svg"></img>,
 }
 
-export default function CvSidebar({personalInfo, skillsList}) {
+export default function CvSidebar({personalInfo, skillsList, certsList}) {
     return (
         <div className="cvSidebar">
             <div className="cvSidebarSect">
@@ -26,13 +26,14 @@ export default function CvSidebar({personalInfo, skillsList}) {
                     {skillsList.length === 0 && <div className="nullInfo">No skills added</div>}
                 </div>
             </div>
-            <div className="cvSidebarSect">
+            {certsList.length > 0 && 
+             <div className="cvSidebarSect">
                 <CvTitle text="Certifications"></CvTitle>
                 <ul className="certsList">
-                    <li>Fake Cert 1</li>
-                    <li>Fake Cert Long text text text text text</li>
+                    {certsList.map(cert => <ul key={cert.id}>{cert.text}</ul>)}
                 </ul>
-            </div>
+            </div>           
+            }
         </div>
     )
 }

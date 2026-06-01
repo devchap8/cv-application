@@ -35,9 +35,18 @@ export default function App() {
         else setSkillsList([]);
     }
 
+    const [certsList, setCertsList] = useState([]);
+    const updateCertsList = (e) => {
+        if(e.target.value) {
+            const splitCerts = e.target.value.split(",").map(cert => cert.trim()).filter(cert => cert !== "").map(c => ({id: crypto.randomUUID(), text: c}));
+            setCertsList(splitCerts);
+        } 
+        else setCertsList([])
+    }
+
     const changeOtherInfo = (e, type) => {
         if(type === "skills") updateSkillsList(e);
-        else if(type === "certs") return null;
+        else if(type === "certs") updateCertsList(e);
     }
 
     const buttonInfo = [
@@ -78,7 +87,7 @@ export default function App() {
                         {personalInfo.name ? personalInfo.name : <div className="nullInfo">Your Name</div>}
                     </header>
                     <section className="cvBottom">
-                        <CvSidebar personalInfo={personalInfo} skillsList={skillsList}></CvSidebar>
+                        <CvSidebar personalInfo={personalInfo} skillsList={skillsList} certsList={certsList}></CvSidebar>
                         <div className="cvMain">Main</div>
                     </section>
                 </div> 

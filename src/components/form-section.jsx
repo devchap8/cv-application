@@ -77,7 +77,7 @@ export default function FormSection({display, id, handleChange}) {
             </label>
             <label htmlFor="certs" className="fullLineLabel">
                 Certifications <i>(Optional)</i>
-                <input type="text" id="certs" name="certs" placeholder='AWS Certified Developer - Associate'></input>
+                <input type="text" id="certs" name="certs" placeholder='AWS Certified Developer - Associate' onChange={(e) => handleChange(e, "certs")}></input>
                 <div className="labelFootnote">Separate with commas</div>
             </label>
         </form>
