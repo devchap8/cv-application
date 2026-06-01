@@ -250,13 +250,16 @@ input:focus, textarea:focus {
   display: flex;
 }
 
-.cvSidebar {
-  background-color: var(--bg-subtle);
-  flex: 1;
+.cvSidebar, .cvMain {
   padding: .5rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.cvSidebar {
+  background-color: var(--bg-subtle);
+  flex: 1;
   word-break: break-all;
 }
 
@@ -332,3 +335,29 @@ li {
   list-style: none;
 }
 
+/* CV Main Section */
+
+p {
+  display: inline;
+}
+
+.cvMainEntry {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cvEntryTitle {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.cvEntryTitleMain {
+  color: black;
+}
+
+.cvEntryMuted {
+  font-size: .9rem;
+  color: var(--text-muted);
+  font-style: italic;
+}

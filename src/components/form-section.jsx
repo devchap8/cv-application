@@ -3,22 +3,25 @@ import Education from "./education"
 import Experience from './experience';
 import Project from './projects';
 
-const baseEdu = crypto.randomUUID();
-const baseProj = crypto.randomUUID();
-const baseExp = crypto.randomUUID();
-
-export default function FormSection({display, id, handleChange}) {
-    const [eduList, setEduList] = useState([baseEdu]);
+export default function FormSection({display, id, handleChange, addButtonAction, delButtonAction, baseIds}) {
+    const [eduList, setEduList] = useState([baseIds.baseEdu]);
     const newEdu = () => setEduList([...eduList, crypto.randomUUID()]);
     const deleteEdu = (uuid) => setEduList(eduList.filter(id => id !== uuid));
 
-    const [projList, setProjList] = useState([baseProj]);
+    const [projList, setProjList] = useState([baseIds.baseProj]);
     const newProj = () => setProjList([...projList, crypto.randomUUID()]);
     const deleteProj = (uuid) => setProjList(projList.filter(id => id !== uuid));
 
-    const [expList, setExpList] = useState([baseExp]);
-    const newExp = () => setExpList([...expList, crypto.randomUUID()]);
-    const deleteExp = (uuid) => setExpList(expList.filter(id => id !== uuid));
+    const [expList, setExpList] = useState([baseIds.baseExp]);
+    const newExp = () => {
+        const uuid = crypto.randomUUID()
+        setExpList([...expList, uuid]);
+        addButtonAction(uuid);
+    }
+    const deleteExp = (uuid) => {
+        setExpList(expList.filter(id => id !== uuid));
+        delButtonAction(uuid);
+    }
 
     if(id === 1) {return ( // personal info
         <form className={display ? "" : "hidden"}>
@@ -46,7 +49,7 @@ export default function FormSection({display, id, handleChange}) {
 
     )} else if(id === 2) {return ( // experience
         <form className={display ? "" : "hidden"}>
-            {expList.map(expId => <Experience uuid={expId} key={expId} remove={() => deleteExp(expId)}></Experience>)}
+            {expList.map(expId => <Experience uuid={expId} key={expId} remove={() => deleteExp(expId)} handleChange={handleChange}></Experience>)}
             <footer className="formFooter">
                 <button type="button" className="newFieldButton" onClick={newExp}>+ New Experience Field</button>
             </footer>

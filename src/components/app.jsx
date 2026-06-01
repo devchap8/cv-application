@@ -1,8 +1,9 @@
-import CvSidebar from './cv-sidebar';
 import { useState } from 'react';
 import { Fragment } from 'react';
 import MenuButton from "./menu-button";
 import FormSection from './form-section';
+import CvSidebar from './cv-sidebar';
+import CvMain from './cv-main';
 
 const menuIcons = {
     person: <img src="src/assets/person.svg"></img>,
@@ -10,6 +11,13 @@ const menuIcons = {
     dots: <img src="src/assets/dots.svg"></img>,
     education: <img src="src/assets/education.svg"></img>,
     folder: <img src="src/assets/folder.svg"></img>,
+}
+
+// base ids for form entry keys
+const baseIds = {
+    baseEdu: crypto.randomUUID(),
+    baseProj: crypto.randomUUID(),
+    baseExp: crypto.randomUUID(),
 }
 
 export default function App() {    
@@ -34,7 +42,6 @@ export default function App() {
         }
         else setSkillsList([]);
     }
-
     const [certsList, setCertsList] = useState([]);
     const updateCertsList = (e) => {
         if(e.target.value) {
@@ -43,18 +50,41 @@ export default function App() {
         } 
         else setCertsList([])
     }
-
     const changeOtherInfo = (e, type) => {
         if(type === "skills") updateSkillsList(e);
         else if(type === "certs") updateCertsList(e);
     }
 
+    const [experienceList, setExperienceList] = useState([{companyName: null, positionTitle: null, startDate: null, endDate: null, description: null, id: baseIds.baseExp}]);
+    const newExp = (uuid) => {
+        setExperienceList([...experienceList, {companyName: null, positionTitle: null, startDate: null, endDate: null, description: null, id: uuid}]);
+    }
+    const delExp = (uuid) => {
+        setExperienceList(experienceList.filter(exp => exp.id !== uuid));
+    }
+    const changeExp = (e, uuid, type) => {
+        let newObj;
+        for(let exp of experienceList) {
+            if(exp.id === uuid) {
+                newObj = exp;
+                break;
+            }
+        }
+        if(type === "companyName") newObj = {...newObj, companyName: e.target.value};
+        else if(type === "positionTitle") newObj = {...newObj, positionTitle: e.target.value};
+        else if(type === "startDate") newObj = {...newObj, startDate: e.target.value};
+        else if(type === "endDate") newObj = {...newObj, endDate: e.target.value};
+        else if(type === "description") newObj = {...newObj, description: e.target.value};
+        const filteredExpList = experienceList.filter(exp => exp.id !== uuid);
+        setExperienceList([...filteredExpList, newObj]);
+    }
+
     const buttonInfo = [
-        {icon: menuIcons.person, text: "Personal Info", id: 1, handleChange: changePersonalInfo},
-        {icon: menuIcons.briefcase, text: "Experience", id: 2, handleChange: null},
-        {icon: menuIcons.education, text: "Education", id: 3, handleChange: null},
-        {icon: menuIcons.folder, text: "Projects", id: 4, handleChange: null},
-        {icon: menuIcons.dots, text: "Other Info", id: 5, handleChange: changeOtherInfo}
+        {icon: menuIcons.person, text: "Personal Info", id: 1, handleChange: changePersonalInfo, addButtonAction: null, delButtonAction: null},
+        {icon: menuIcons.briefcase, text: "Experience", id: 2, handleChange: changeExp, addButtonAction: newExp, delButtonAction: delExp},
+        {icon: menuIcons.education, text: "Education", id: 3, handleChange: null, addButtonAction: null, delButtonAction: null},
+        {icon: menuIcons.folder, text: "Projects", id: 4, handleChange: null, addButtonAction: null, delButtonAction: null},
+        {icon: menuIcons.dots, text: "Other Info", id: 5, handleChange: changeOtherInfo, addButtonAction: null, delButtonAction: null}
     ];
 
     return (
@@ -76,6 +106,9 @@ export default function App() {
                             display={info.id === selectedId}
                             id={info.id}
                             handleChange={info.handleChange}
+                            addButtonAction={info.addButtonAction}
+                            delButtonAction={info.delButtonAction}
+                            baseIds={baseIds}
                         ></FormSection>
                     </Fragment>
                     )}
@@ -88,7 +121,7 @@ export default function App() {
                     </header>
                     <section className="cvBottom">
                         <CvSidebar personalInfo={personalInfo} skillsList={skillsList} certsList={certsList}></CvSidebar>
-                        <div className="cvMain">Main</div>
+                        <CvMain experienceList={experienceList}></CvMain>
                     </section>
                 </div> 
             </main>
