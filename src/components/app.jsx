@@ -95,10 +95,29 @@ export default function App() {
         setProjectList([...filteredProjList, newObj]);
     }
 
+    const [educationList, setEducationList] = useState([{school: null, degree: null, gradYear: null, gpa: null, id: baseIds.baseEdu}]);
+    const newEdu = (uuid) => setEducationList([...educationList, {school: null, degree: null, gradYear: null, gpa: null, id: uuid}]);
+    const delEdu = (uuid) => setEducationList(educationList.filter(edu => edu.id !== uuid));
+    const changeEdu = (e, uuid, type) => {
+        let newObj;
+        for(let edu of educationList) {
+            if(edu.id === uuid) {
+                newObj = edu;
+                break;
+            }
+        }
+        if(type === "school") newObj = {...newObj, school: e.target.value};        
+        else if(type === "degree") newObj = {...newObj, degree: e.target.value};
+        else if(type === "gradYear") newObj = {...newObj, gradYear: e.target.value};
+        else if(type === "gpa") newObj = {...newObj, gpa: e.target.value};
+        const filteredEduList = educationList.filter(edu => edu.id !== uuid);
+        setEducationList([...filteredEduList, newObj]);
+    }
+
     const buttonInfo = [
         {icon: menuIcons.person, text: "Personal Info", id: 1, handleChange: changePersonalInfo, addButtonAction: null, delButtonAction: null},
         {icon: menuIcons.briefcase, text: "Experience", id: 2, handleChange: changeExp, addButtonAction: newExp, delButtonAction: delExp},
-        {icon: menuIcons.education, text: "Education", id: 3, handleChange: null, addButtonAction: null, delButtonAction: null},
+        {icon: menuIcons.education, text: "Education", id: 3, handleChange: changeEdu, addButtonAction: newEdu, delButtonAction: delEdu},
         {icon: menuIcons.folder, text: "Projects", id: 4, handleChange: changeProj, addButtonAction: newProj, delButtonAction: delProj},
         {icon: menuIcons.dots, text: "Other Info", id: 5, handleChange: changeOtherInfo, addButtonAction: null, delButtonAction: null}
     ];
@@ -137,7 +156,7 @@ export default function App() {
                     </header>
                     <section className="cvBottom">
                         <CvSidebar personalInfo={personalInfo} skillsList={skillsList} certsList={certsList}></CvSidebar>
-                        <CvMain experienceList={experienceList} projectList={projectList}></CvMain>
+                        <CvMain experienceList={experienceList} projectList={projectList} educationList={educationList}></CvMain>
                     </section>
                 </div> 
             </main>

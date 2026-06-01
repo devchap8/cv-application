@@ -1,8 +1,9 @@
 import CvTitle from "./cv-title";
 import CvExperience from "./cv-experience";
 import CvProject from "./cv-projects";
+import CvEducation from "./cv-education";
 
-export default function CvMain({experienceList, projectList}) {
+export default function CvMain({experienceList, projectList, educationList}) {
     return (
         <div className="cvMain">
             <div className="cvMainSect">
@@ -19,6 +20,9 @@ export default function CvMain({experienceList, projectList}) {
             </div>
             <div className="cvMainSect">
                 <CvTitle text="Education"></CvTitle>
+                {educationList.map(edu => 
+                    <CvEducation key={edu.id} self={edu}></CvEducation>
+                )}
             </div>
         </div>
     )

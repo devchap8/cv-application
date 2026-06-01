@@ -5,12 +5,26 @@ import Project from './projects';
 
 export default function FormSection({display, id, handleChange, addButtonAction, delButtonAction, baseIds}) {
     const [eduList, setEduList] = useState([baseIds.baseEdu]);
-    const newEdu = () => setEduList([...eduList, crypto.randomUUID()]);
-    const deleteEdu = (uuid) => setEduList(eduList.filter(id => id !== uuid));
+    const newEdu = () => {
+        const uuid = crypto.randomUUID()
+        setEduList([...eduList, uuid]);
+        addButtonAction(uuid);
+    }
+    const deleteEdu = (uuid) => {
+        setEduList(eduList.filter(id => id !== uuid));
+        delButtonAction(uuid);
+    }
 
     const [projList, setProjList] = useState([baseIds.baseProj]);
-    const newProj = () => setProjList([...projList, crypto.randomUUID()]);
-    const deleteProj = (uuid) => setProjList(projList.filter(id => id !== uuid));
+    const newProj = () => {
+        const uuid = crypto.randomUUID();
+        setProjList([...projList, uuid]);
+        addButtonAction(uuid);
+    }
+    const deleteProj = (uuid) => {
+        setProjList(projList.filter(id => id !== uuid));
+        delButtonAction(uuid);
+    }
 
     const [expList, setExpList] = useState([baseIds.baseExp]);
     const newExp = () => {
