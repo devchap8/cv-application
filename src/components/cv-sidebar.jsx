@@ -22,7 +22,7 @@ export default function CvSidebar({personalInfo, skillsList}) {
             <div className="cvSidebarSect">
                 <CvTitle text="Skills"></CvTitle>
                 <div className="skillsList">
-                    {skillsList.map(skill => <div className="cvSkill">{skill}</div>)}
+                    {skillsList.map(skill => <div className="cvSkill" key={skill.id}>{skill.text}</div>)}
                     {skillsList.length === 0 && <div className="nullInfo">No skills added</div>}
                 </div>
             </div>

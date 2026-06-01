@@ -29,7 +29,7 @@ export default function App() {
     const [skillsList, setSkillsList] = useState([]);
     const updateSkillsList = (e) => {
         if(e.target.value) {
-            const splitSkills = e.target.value.split(",").map(skill => skill.trim()).filter(skill => skill !== "");
+            const splitSkills = e.target.value.split(",").map(skill => skill.trim()).filter(skill => skill !== "").map(s => ({id: crypto.randomUUID(), text: s}));
             setSkillsList(splitSkills);
         }
         else setSkillsList([]);
