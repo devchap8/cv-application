@@ -1,7 +1,7 @@
 # CV Application
 A web-based resume builder where the user fills out forms with their information and their CV is updated in real time.
 
-Netlify deployment: devchap8-cv-application.netlify.app/
+Netlify deployment [Here](https://devchap8-cv-application.netlify.app/) 
 
 ## Tech Stack
 * React
