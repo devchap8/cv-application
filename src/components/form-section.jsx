@@ -41,7 +41,7 @@ export default function FormSection({display, id, handleChange, addButtonAction,
         <form className={display ? "" : "hidden"}>
             <label htmlFor="fullName" className="fullLineLabel">
                 Name
-                <input type="text" id="fullName" name="fullName" placeholder='John Smith' onChange={(e) => handleChange(e, "name")}></input>
+                <input type="text" id="fullName" name="fullName" placeholder='John Smith' defaultValue="John Smith" onChange={(e) => handleChange(e, "name")}></input>
             </label> 
             <label htmlFor="phoneNumber">
                 Phone Number
