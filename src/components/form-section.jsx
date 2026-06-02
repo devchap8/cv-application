@@ -41,19 +41,19 @@ export default function FormSection({display, id, handleChange, addButtonAction,
         <form className={display ? "" : "hidden"}>
             <label htmlFor="fullName" className="fullLineLabel">
                 Name
-                <input type="text" id="fullName" name="fullName" placeholder='John Smith' defaultValue="John Smith" onChange={(e) => handleChange(e, "name")}></input>
-            </label> 
-            <label htmlFor="phoneNumber">
-                Phone Number
-                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder='(999) 123-4567' onChange={(e) => handleChange(e, "phone")}></input> 
+                <input type="text" id="fullName" name="fullName" placeholder='John Smith' onChange={(e) => handleChange(e, "name")}></input>
             </label> 
             <label htmlFor="email">
                 Email
                 <input type="email" name="email" id="email" placeholder='email@example.com' onChange={(e) => handleChange(e, "email")}></input>
             </label> 
+            <label htmlFor="phoneNumber">
+                Phone Number
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder='(999) 123-4567' onChange={(e) => handleChange(e, "phone")}></input> 
+            </label> 
             <label htmlFor="location" className="fullLineLabel">
                 Location
-                <input type="text" id="location" name="location" placeholder='New York City, New York, USA' onChange={(e) => handleChange(e, "location")}></input>
+                <input type="text" id="location" name="location" placeholder='New York City, USA' onChange={(e) => handleChange(e, "location")}></input>
             </label> 
             <label htmlFor="website" className="fullLineLabel">
                 Website Link

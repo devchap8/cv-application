@@ -7,8 +7,8 @@ export default function CvEducation({self}) {
                 <p className="cvEntryTitleSecond">{self.school}</p>
             </h3>
             <div className="cvEntryMuted">
-                {self.gpa !== null && self.gpa !== "" && `GPA: ${self.gpa}`}
-                {self.gpa !== null && self.gpa !== "" && self.gradYear !== null && self.gradYear !== "" && ", "}&nbsp;
+                {self.gpa !== null && self.gpa !== "" && `${self.gpa}`}
+                {self.gpa !== null && self.gpa !== "" && self.gradYear !== null && self.gradYear !== "" && <p>, &nbsp;</p>}
                 {self.gradYear !== null && self.gradYear !== "" && self.gradYear}
             </div>
         </div>

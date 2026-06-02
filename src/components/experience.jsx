@@ -2,13 +2,13 @@ export default function Experience({uuid, remove, handleChange}) {
     return (
         <div className="subform">
             <button type="button" className="deleteButton" onClick={remove}>x</button>
-            <label htmlFor={`companyName${uuid}`} className="fullLineLabel">
-                Company Name
-                <input type="text" id={`companyName${uuid}`} name={`companyName${uuid}`} placeholder="Microsoft" onChange={(e) => handleChange(e, uuid, "companyName")}></input>
-            </label>
             <label htmlFor={`jobTitle${uuid}`} className="fullLineLabel">
                 Position Title
                 <input type="text" id={`jobTitle${uuid}`} name={`jobTitle${uuid}`} placeholder="Junior Full Stack Developer" onChange={(e) => handleChange(e, uuid, "positionTitle")}></input>
+            </label>
+            <label htmlFor={`companyName${uuid}`} className="fullLineLabel">
+                Company Name
+                <input type="text" id={`companyName${uuid}`} name={`companyName${uuid}`} placeholder="Microsoft" onChange={(e) => handleChange(e, uuid, "companyName")}></input>
             </label>
             <label htmlFor={`startDate${uuid}`}>
                 Start Date

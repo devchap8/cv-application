@@ -18,17 +18,17 @@ export default function CvMain({experienceList, projectList, educationList}) {
                 )}
             </div>
             <div className="cvMainSect">
-                <CvTitle text="Projects"></CvTitle>
-                {checkEmptyList(projectList) && <div className="nullInfo">No projects listed</div>}
-                {projectList.map(proj => 
-                    <CvProject key={proj.id} self={proj}></CvProject>
-                )}
-            </div>
-            <div className="cvMainSect">
                 <CvTitle text="Education"></CvTitle>
                 {checkEmptyList(educationList) && <div className="nullInfo">No education listed</div>}
                 {educationList.map(edu => 
                     <CvEducation key={edu.id} self={edu}></CvEducation>
+                )}
+            </div>
+            <div className="cvMainSect">
+                <CvTitle text="Projects"></CvTitle>
+                {checkEmptyList(projectList) && <div className="nullInfo">No projects listed</div>}
+                {projectList.map(proj => 
+                    <CvProject key={proj.id} self={proj}></CvProject>
                 )}
             </div>
         </div>
