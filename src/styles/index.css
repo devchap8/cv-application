@@ -288,12 +288,6 @@ input:focus, textarea:focus {
   font-size: 1.75rem;
 }
 
-.cvTitleUnderline {
-  background-color: var(--bg-medium);
-  height: 2px;
-  margin-bottom: 5px;
-}
-
 /* Contact Section */
 
 .cvSidebar img {
@@ -344,6 +338,16 @@ li {
 
 p {
   display: inline;
+}
+
+.cvMainSect > div {
+  margin-bottom: 10px;
+}
+
+div.cvTitleUnderline {
+  background-color: var(--bg-medium);
+  height: 2px;
+  margin-bottom: 5px;
 }
 
 .cvMainEntry {
