@@ -4,7 +4,7 @@ export default function CvProject({self}) {
             <h3 className="cvEntryTitle">
                 <p className="cvEntryTitleMain">{self.name}</p> 
             </h3>
-            <a className="cvProjectLink" href={self.link}>{self.link}</a>
+            <a className="cvProjectLink" href={`https://${self.link}`}>{self.link}</a>
             <div className="cvEntryBody">{self.description}</div>
         </div>
     )

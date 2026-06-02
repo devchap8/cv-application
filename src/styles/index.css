@@ -239,7 +239,6 @@ input:focus, textarea:focus {
 .cvHeader {
   background-color: var(--bg-medium);
   color: var(--bg-subtle);
-  flex: 1 0 auto;
   font-size: 4rem;
   font-weight: bold;
   display: flex;
@@ -270,6 +269,7 @@ input:focus, textarea:focus {
 .cvMain {
   flex: 2;
   background-color: var(--bg-main);
+  gap: 5px;
 }
 
 .nullInfo {
@@ -301,8 +301,12 @@ input:focus, textarea:focus {
   align-items: center;
 }
 
-.contactLine a {
+a {
   text-decoration: none;
+}
+
+a:link, a:active, a:visited {
+  color: var(--accent);
 }
 
 /* Skills Section */
