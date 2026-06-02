@@ -1,11 +1,15 @@
 import ContactLine from "./contact-line"
 import CvTitle from "./cv-title"
 
+import emailSvg from "../assets/email.svg";
+import linkSvg from "../assets/link.svg";
+import locationSvg from "../assets/location.svg";
+import phoneSvg from "../assets/phone.svg";
 const contactIcons = {
-    email: <img src="src/assets/email.svg"></img>,
-    link: <img src="src/assets/link.svg"></img>,
-    location: <img src="src/assets/location.svg"></img>,
-    phone: <img src="src/assets/phone.svg"></img>,
+    email: <img src={emailSvg}></img>,
+    link: <img src={linkSvg}></img>,
+    location: <img src={locationSvg}></img>,
+    phone: <img src={phoneSvg}></img>,
 }
 
 export default function CvSidebar({personalInfo, skillsList, certsList}) {

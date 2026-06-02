@@ -5,12 +5,17 @@ import FormSection from './form-section';
 import CvSidebar from './cv-sidebar';
 import CvMain from './cv-main';
 
+import personSvg from "../assets/person.svg";
+import briefCaseSvg from "../assets/briefcase.svg";
+import dotsSvg from "../assets/dots.svg";
+import educationSvg from "../assets/education.svg";
+import folderSvg from "../assets/folder.svg";
 const menuIcons = {
-    person: <img src="src/assets/person.svg"></img>,
-    briefcase: <img src="src/assets/briefcase.svg"></img>,
-    dots: <img src="src/assets/dots.svg"></img>,
-    education: <img src="src/assets/education.svg"></img>,
-    folder: <img src="src/assets/folder.svg"></img>,
+    person: <img src={personSvg}></img>,
+    briefcase: <img src={briefCaseSvg}></img>,
+    dots: <img src={dotsSvg}></img>,
+    education: <img src={educationSvg}></img>,
+    folder: <img src={folderSvg}></img>,
 }
 
 // base ids for form entry keys
