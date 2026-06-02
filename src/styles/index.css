@@ -169,7 +169,7 @@ input:focus, textarea:focus {
 
 .newFieldButton {
   width: 50%;
-  height: 30px;
+  height: 35px;
   font-size: 1rem;
   border: 1px solid var(--text-muted);
   border-radius: 10px;
